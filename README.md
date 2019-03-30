@@ -159,3 +159,8 @@ TODO: Add option to leave values unescaped
 #### `.onDuplicateKeyUpdate(data)`  
 `data` *Unescaped keys, escaped values* An object where keys translate to columns  
 **Renders:** `ON DUPLICATE KEY UPDATE col1=?, col2=?`
+
+#### `.raw(sql, values)`  
+`sql` *Unescaped* A string with SQL code  
+`values` *Escaped* An array of values to push to the prepared statement    
+**Renders:** The sql string
