@@ -73,6 +73,10 @@ query.custom.foo(arg1, arg2).select().from('myTable')
 `query` *Unescaped keys, escaped values* An object where key-value pairs renders patterns.  
 **Renders:** `WHERE 1=1 AND foo=?`
 
+#### `.in(vals)` 
+`vals` *Escaped* An array of values.  
+**Renders:** `IN (?, ?, ?)`  
+
 #### `.values(values)`  
 `values` *Unescaped keys, escaped values* An object or array of objects where keys will translate to columns.  
 ```javascript

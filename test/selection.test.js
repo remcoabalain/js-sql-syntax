@@ -19,3 +19,7 @@ test('insert', () => {
 test('delete', () => {
   expect(sql().delete().getQuery()).toBe('DELETE')
 })
+
+test('in', () => {
+  expect(sql().in(['foo', 'bar']).getQuery()).toBe('IN (?,?)')
+})
