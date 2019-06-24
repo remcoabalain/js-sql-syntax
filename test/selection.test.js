@@ -23,3 +23,11 @@ test('delete', () => {
 test('in', () => {
   expect(sql().in(['foo', 'bar']).getQuery()).toBe('IN (?,?)')
 })
+
+test('where', () => {
+  expect(sql().where({ foo: 'bar', baz: 'qux' }).getQuery()).toBe('WHERE 1=1 AND foo=? AND baz=?')
+})
+
+test('where in', () => {
+  expect(sql().where({ foo: ['bar', 'baz', 'qux'] }).getQuery()).toBe('WHERE 1=1 AND foo IN (?,?,?)')
+})
