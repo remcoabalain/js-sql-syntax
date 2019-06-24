@@ -71,7 +71,10 @@ query.custom.foo(arg1, arg2).select().from('myTable')
 
 #### `.where(query)`  
 `query` *Unescaped keys, escaped values* An object where key-value pairs renders patterns.  
-**Renders:** `WHERE 1=1 AND foo=?`
+
+Values that are arrays will be treated as SQL IN-statements.  
+
+**Renders:** `WHERE 1=1 AND foo=? AND bar IN (?,?,?)`
 
 #### `.in(vals)` 
 `vals` *Escaped* An array of values.  
