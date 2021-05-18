@@ -1,10 +1,10 @@
 {
   "name": "js-sql-syntax",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Create SQL-queries using JavaScript functions",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "standard && jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,13 @@
   },
   "homepage": "https://github.com/axelboberg/js-sql-syntax#readme",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.9.0",
+    "standard": "^16.0.3"
+  },
+  "dependencies": {},
+  "standard": {
+    "ignore": [
+      "test/*.js"
+    ]
   }
 }

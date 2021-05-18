@@ -72,9 +72,29 @@ query.custom.foo(arg1, arg2).select().from('myTable')
 #### `.where(query)`  
 `query` *Unescaped keys, escaped values* An object where key-value pairs renders patterns.  
 
-Values that are arrays will be treated as SQL IN-statements.  
+**Using equals**
+```javascript
+const q = sql().where({ foo: 'bar' }).getQuery()
+// WHERE 1=1 AND foo=?
+```
 
-**Renders:** `WHERE 1=1 AND foo=? AND bar IN (?,?,?)`
+**Using arrays (will become an IN-statement)**
+```javascript
+const q = sql().where({ foo: ['bar', 'baz'] }).getQuery()
+// WHERE 1=1 AND foo IN (?, ?)
+```
+
+**Using other operators**  
+Valid operators are `$gt`, `$gte`, `$lt`, `$lte`, `$eq`  
+Trying to use an invalid operator will throw an error with code `ERR_WHERE_INVALID_OPERAND`
+```javascript
+const q = sql().where({ foo: { $gt: 1 })).getQuery()
+// WHERE 1=1 AND foo>?
+```
+
+**Renders:** `WHERE 1=1 AND foo=?`  
+**Renders:** `WHERE 1=1 AND bar IN (?,?,?)`  
+**Renders:** `WHERE 1=1 AND foo>?`
 
 #### `.in(vals)` 
 `vals` *Escaped* An array of values.  
