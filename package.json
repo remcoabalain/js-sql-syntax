@@ -4,7 +4,8 @@
   "description": "Create SQL-queries using JavaScript functions",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "standard && jest",
+    "fix": "standard --exclude --fix"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,13 @@
   "homepage": "https://github.com/axelboberg/js-sql-syntax#readme",
   "devDependencies": {
     "jest": "^24.1.0"
+  },
+  "dependencies": {
+    "standard": "^16.0.3"
+  },
+  "standard": {
+    "ignore": [
+      "test/*.js"
+    ]
   }
 }
